@@ -46,4 +46,15 @@ jobs:
     - name: Test
       run: |
         chmod +x hello_world
-        ./hello_world
+        ./hello_world > hello_output
+        if grep --quiet 'hello world' hello_output; then
+          echo 'everything is ok 😊😊😊'
+        else
+          echo '============================================='
+          echo 'Dude, Something went wrong !!!'
+          echo '---------------------------------------------'
+          echo 'printing output'
+          cat hello_output
+          echo '============================================='
+          exit 1
+        fi
