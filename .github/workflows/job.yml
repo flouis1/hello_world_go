@@ -21,7 +21,7 @@ jobs:
     - name: Build
       run: go build hello_world.go
       
-    - uses: actions/upload-artifact@master
+    - uses: actions/upload-artifact@main
       with:
         name: my-artifact
         path: hello_world
@@ -29,6 +29,11 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
+    - uses: actions/download-artifact@main
+      with:
+        name: my-artifact
+        path: hello_world
+
     - uses: actions/checkout@v3
 
     - name: Set up Go
