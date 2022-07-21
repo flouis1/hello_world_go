@@ -77,7 +77,7 @@ jobs:
         ARTI_URL: ${{ secrets.URL }}
         ARTI_TOKEN: ${{ secrets.TOKEN }}
       run: |
-        jf c add arti --artifactory-url ${{ env.ARTI_URL }} --access-token ${{ env.ARTI_TOKEN }} --xray-url https://fabienl.jfrog.io/xray
+        jf c add arti --artifactory-url "$env:ARTI_URL" --access-token "$env:ARTI_TOKEN" --xray-url https://fabienl.jfrog.io/xray
 
     - name: upload_artifact
       run: |
