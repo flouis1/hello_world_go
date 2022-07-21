@@ -73,8 +73,11 @@ jobs:
       run: curl -fL https://install-cli.jfrog.io | sh
 
     - name: configure_cli
+      env:
+        ARTI_URL: ${{ secrets.URL }
+        ARTI_TOKEN: ${{ secrets.TOKEN }
       run: |
-        jf c add arti --artifactory-url ${{secrets.URL}} --access-token ${{secrets.TOKEN}} --xray-url https://fabienl.jfrog.io/xray
+        jf c add arti --artifactory-url $ARTI_URL-access-token $ARTI_TOKEN --xray-url https://fabienl.jfrog.io/xray
 
     - name: upload_artifact
       run: |
