@@ -69,9 +69,11 @@ jobs:
         name: my-artifact
         path: .
 
-    - name: configure_ci
+    - name: download_cli
+      run: curl -fL https://install-cli.jfrog.io | sh
+
+    - name: configure_cli
       run: |
-        curl -fL https://install-cli.jfrog.io | sh
         jf c add arti --artifactory-url '${{ secrets.URL }}' --access-token '${{ secrets.TOKEN }}' --xray-url https://fabienl.jfrog.io/xray
 
     - name: upload_artifact
