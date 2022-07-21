@@ -9,7 +9,7 @@ on:
 jobs:
 
   build:
-    runs-on: releases-docker.jfrog.io/jfrog/jfrog-cli-v2-jf
+    runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
 
