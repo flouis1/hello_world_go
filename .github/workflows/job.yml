@@ -20,6 +20,26 @@ jobs:
 
     - name: Build
       run: go build hello_world.go
+      
+    - uses: actions/upload-artifact@master
+      with:
+        name: my-artifact
+        path: hello_world
 
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    
+    - uses: actions/download-artifact@master
+      with:
+        name: my-artifact
+        path: hello_world
+
+    - name: Set up Go
+      uses: actions/setup-go@v3
+      with:
+        go-version: 1.18
+      
     - name: Test
       run: ./hello_world
