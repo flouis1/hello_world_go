@@ -19,9 +19,7 @@ jobs:
         go-version: 1.18
 
     - name: Build
-      run: |
-        ls -all
-        pwd
+      run: go build hello_world.go
 
     - name: Test
-      run: go test -v ./...
+      run: go run hello_world
