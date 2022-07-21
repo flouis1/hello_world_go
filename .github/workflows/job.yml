@@ -44,4 +44,6 @@ jobs:
         path: .
       
     - name: Test
-      run: ./hello_world
+      run: |
+        chmod +x hello_world
+        ./hello_world
