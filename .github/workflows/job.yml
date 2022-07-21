@@ -60,14 +60,20 @@ jobs:
         fi
   
   artifactory:
-    needs: test
-    runs-on: releases-docker.jfrog.io/jfrog/jfrog-cli-v2-jf
+    needs: [build,test]
+    runs-on: ubuntu-latest
     steps:
-    
+
+    - uses: actions/download-artifact@main
+      with:
+        name: my-artifact
+        path: .
+
+    - name: configure_ci
+      run: |
+        curl -fL https://install-cli.jfrog.io | sh
+        jf c add arti --artifactory-url $URL --access-token $TOKEN --xray-url https://fabienl.jfrog.io/xray
+
     - name: upload_artifact
       run: |
-        chmod +x hello_world
-        ./hello_world > hello_output
-        if grep --quiet 'hello world' hello_output; then
-          echo 'everything is ok 😊😊😊'
-        else
+        jf c s
