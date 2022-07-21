@@ -41,7 +41,7 @@ jobs:
     - uses: actions/download-artifact@main
       with:
         name: my-artifact
-        path: hello_world
+        path: .
       
     - name: Test
       run: ./hello_world
