@@ -43,11 +43,11 @@ jobs:
         name: my-artifact
         path: .
       
-    - name: Test
+    - name: test
       run: |
         chmod +x hello_world
         ./hello_world > hello_output
-        if grep --quiet 'hello world 1' hello_output; then
+        if grep --quiet 'hello world' hello_output; then
           echo 'everything is ok 😊😊😊'
         else
           echo '============================================='
@@ -58,3 +58,16 @@ jobs:
           echo '============================================='
           exit 1
         fi
+  
+  artifactory:
+    needs: test
+    runs-on: releases-docker.jfrog.io/jfrog/jfrog-cli-v2-jf
+    steps:
+    
+    - name: upload_artifact
+      run: |
+        chmod +x hello_world
+        ./hello_world > hello_output
+        if grep --quiet 'hello world' hello_output; then
+          echo 'everything is ok 😊😊😊'
+        else
