@@ -74,7 +74,7 @@ jobs:
 
     - name: configure_cli
       run: |
-        jf c add arti --artifactory-url '${{ secrets.URL }}' --access-token '${{ secrets.TOKEN }}' --xray-url https://fabienl.jfrog.io/xray
+        jf c add arti --artifactory-url ${{secrets.URL}} --access-token ${{secrets.TOKEN}} --xray-url https://fabienl.jfrog.io/xray
 
     - name: upload_artifact
       run: |
