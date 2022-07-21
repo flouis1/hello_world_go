@@ -47,7 +47,7 @@ jobs:
       run: |
         chmod +x hello_world
         ./hello_world > hello_output
-        if grep --quiet 'hello world' hello_output; then
+        if grep --quiet 'hello world 1' hello_output; then
           echo 'everything is ok 😊😊😊'
         else
           echo '============================================='
