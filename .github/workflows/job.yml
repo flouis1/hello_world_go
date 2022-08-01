@@ -85,7 +85,7 @@ jobs:
       run: |
         jf c s
         ls -all
-        jf rt u hello_world --server-id arti hello_world/${{github.run_number}}
+        jf rt u hello_world --server-id arti /hello_world/${{github.run_number}}
         jf rt bp hello_world_go ${{github.run_number}} --server-id arti
         
         
