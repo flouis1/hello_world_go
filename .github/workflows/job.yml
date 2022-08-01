@@ -98,5 +98,5 @@ jobs:
 
     - name: upload_docker_image
       run: |
-        jf docker-push hello-world-go-docker:$(date +%s) hello-world-go-docker/${{github.run_number}} --server-id arti  --build-name=build_name --build-number=${{github.run_number}}
+        jf docker push --repo-path hello-world-go-docker/${{github.run_number}} --server-id arti  --build-name=build_name --build-number=${{github.run_number}}
         
