@@ -62,6 +62,7 @@ jobs:
   artifactory:
     needs: [build,test]
     runs-on: ubuntu-latest
+    environment: production
     steps:
 
     - uses: actions/download-artifact@main
