@@ -99,4 +99,6 @@ jobs:
     - name: upload_docker_image
       run: |
         jf rt -h
-        jf docker build . --file Dockerfile --tag hello_world_go:$(date +%s) --build-name=my-build-name --build-number=${{github.run_number}}
+        jf rt dp -h
+        ls -all
+        jf rt dp --build-name=my-build-name --build-number=${{github.run_number}}
