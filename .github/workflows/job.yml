@@ -79,13 +79,13 @@ jobs:
         ARTI_TOKEN: ${{ secrets.TOKEN }}
       run: |
         echo $ARTI_URL $URL
-        jf c add arti --artifactory-url $ARTI_URL --access-token $ARTI_TOKEN --xray-url https://fabienl.jfrog.io/xray
+        jf c add arti --artifactory-url https://fabienl.jfrog.io/artifactory/ --access-token $ARTI_TOKEN --xray-url https://fabienl.jfrog.io/xray/
 
     - name: upload_artifact
       run: |
         jf c s
         ls -all
-        jf rt u hello_world --server-id arti /hello_world/${{github.run_number}}
+        jf rt u hello_world --server-id arti hello_world/${{github.run_number}}
         jf rt bp hello_world_go ${{github.run_number}} --server-id arti
         
         
