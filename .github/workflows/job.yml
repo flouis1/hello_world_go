@@ -84,7 +84,8 @@ jobs:
     - name: upload_artifact
       run: |
         jf c s
-        jf rt u hello_world --server-id arti hello_world
+        ls -all
+        jf rt u hello_world --server-id arti hello_world/${{github.run_number}}
         jf rt bp hello_world_go ${{github.run_number}} --server-id arti
         
         
