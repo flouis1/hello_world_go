@@ -98,5 +98,4 @@ jobs:
 
     - name: upload_docker_image
       run: |
-        docker login https://fabienl.jfrog.io
         jf rt docker-push hello-world-go-docker:${{github.run_number}} docker-local --build-name=my-build-name --build-number=${{github.run_number}}
