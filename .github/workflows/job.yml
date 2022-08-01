@@ -75,8 +75,8 @@ jobs:
 
     - name: configure_cli
       env:
-        ARTI_URL: URL
-        ARTI_TOKEN: TOKEN
+        ARTI_URL: $URL
+        ARTI_TOKEN: $TOKEN
       run: |
         echo $ARTI_URL $URL
         jf c add arti --artifactory-url $ARTI_URL --access-token $ARTI_TOKEN --xray-url https://fabienl.jfrog.io/xray
