@@ -98,7 +98,5 @@ jobs:
 
     - name: upload_docker_image
       run: |
-        jf rt -h
         jf rt dp -h
-        ls -all
-        jf rt dp --build-name=my-build-name --build-number=${{github.run_number}}
+        jf rt dp hello-world-go-docker docker_${{github.run_number}}
