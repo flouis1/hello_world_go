@@ -1,0 +1,3 @@
+myRepo:
+  gitProvider: jfrog_cli_pipeline
+  path: flouis1/hello_world_go
