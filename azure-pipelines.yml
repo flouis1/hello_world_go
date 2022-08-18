@@ -36,4 +36,4 @@ steps:
     fi
     go build -v hello_world.go
   workingDirectory: '$(modulePath)'
-  displayName: 'Get dependencies, then build'
+  displayName: 'Get dependencies, then build go app'
